@@ -1,25 +1,29 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import functionPlot from "function-plot";
 
 function CircuitGraph() {
-  const graphElement = useRef<HTMLDivElement>({} as HTMLDivElement);
+  const graphElement = useRef<HTMLDivElement>(null);
 
-  functionPlot({
-    target: graphElement.current,
-    xAxis: {
-      label: "Prova X",
-    },
-    yAxis: {
-      label: "Prova Y",
-    },
-    grid: true,
-    data: [
-      {
-        fn: "sin(x)",
+  useEffect(() => {
+    if (!graphElement.current) return;
+
+    functionPlot({
+      target: graphElement.current,
+      xAxis: {
+        label: "Prova X",
       },
-    ],
-    width: 384,
-    height: 256,
+      yAxis: {
+        label: "Prova Y",
+      },
+      grid: true,
+      data: [
+        {
+          fn: "sin(x)",
+        },
+      ],
+      width: 384,
+      height: 256,
+    });
   });
 
   return <div ref={graphElement} />;
