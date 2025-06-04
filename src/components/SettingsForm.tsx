@@ -3,6 +3,7 @@ import {
   type InputNumberChangeEvent,
 } from "primereact/inputnumber";
 import { type Settings } from "../types";
+import { capacity, inductance, resistence } from "../config";
 
 type Props = {
   settings: Settings;
@@ -16,6 +17,7 @@ function SettingsForm({ settings, setSettings }: Props) {
       ...settings,
       [e.originalEvent.currentTarget.localName]: e.value,
     });
+    console.log(settings);
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,7 +26,7 @@ function SettingsForm({ settings, setSettings }: Props) {
   };
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-4 w-72">
+    <form onSubmit={onSubmit} className="flex flex-col gap-4 w-72 items-center">
       <div className="flex flex-col gap-2">
         <label htmlFor="peakVoltage">Valore di picco</label>
         <InputNumber id="peakVoltage" name="peakVoltage" onChange={onChange} />
@@ -42,17 +44,32 @@ function SettingsForm({ settings, setSettings }: Props) {
 
       <div className="flex flex-col gap-2">
         <label htmlFor="resistence">Resistenza</label>
-        <InputNumber id="resistence" name="resistence" onChange={onChange} />
+        <InputNumber
+          id="resistence"
+          name="resistence"
+          onChange={onChange}
+          disabled={settings.valueEnabled !== resistence}
+        />
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="capacity">Capacità</label>
-        <InputNumber id="capacity" name="capacity" onChange={onChange} />
+        <InputNumber
+          id="capacity"
+          name="capacity"
+          onChange={onChange}
+          disabled={settings.valueEnabled !== capacity}
+        />
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="inductance">Induttanza</label>
-        <InputNumber id="inductance" name="inductance" onChange={onChange} />
+        <InputNumber
+          id="inductance"
+          name="inductance"
+          onChange={onChange}
+          disabled={settings.valueEnabled !== inductance}
+        />
       </div>
     </form>
   );

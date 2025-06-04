@@ -11,20 +11,18 @@ function App() {
     resistence: 0,
     capacity: 0,
     inductance: 0,
+    valueEnabled: "R",
+    selectedCircuit: 0,
   });
 
   return (
-    // <div className="min-h-screen flex items-center justify-center">
-    //   <h1 className="text-3xl font-extrabold">Hello World</h1>
-    // </div>
-
     <div className="min-h-screen flex flex-col items-center justify-center ">
-      <div className="flex flex-col p-8 gap-8 items-center justify-center rounded-3xl shadow-lg">
+      <div className="flex flex-col p-8 gap-8 items-center justify-center bg-linear-to-b from-zinc-50 to-white rounded-3xl shadow-lg">
         <h1 className="text-3xl font-extrabold">tlc</h1>
 
         <div className="flex flex-row items- gap-16">
           <SettingsForm settings={settings} setSettings={setSettings} />
-          <CircuitContainer />
+          <CircuitContainer settings={settings} setSettings={setSettings} />
         </div>
       </div>
     </div>

@@ -1,19 +1,19 @@
-import { useState } from "react";
 import CircuitSelector from "./CircuitSelector";
 import CircuitImage from "./CircuitImage";
 import CircuitGraph from "./CircuitGraph";
+import type { Settings } from "../types";
 
-function CircuitContainer() {
-  const [selectedCircuit, setSelectedCircuit] = useState(0);
+type Props = {
+  settings: Settings;
+  setSettings: (value: Settings) => void;
+};
 
+function CircuitContainer({ settings, setSettings }: Props) {
   return (
     <div className="flex flex-col items-center gap-4 w-96 h-auto">
-      <CircuitSelector
-        selectedCircuit={selectedCircuit}
-        setSelectedCircuit={setSelectedCircuit}
-      />
+      <CircuitSelector settings={settings} setSettings={setSettings} />
       <CircuitGraph />
-      <CircuitImage selectedCircuit={selectedCircuit} />
+      <CircuitImage selectedCircuit={settings.selectedCircuit} />
     </div>
   );
 }
