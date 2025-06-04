@@ -20,7 +20,7 @@ function App() {
       <div className="flex flex-col p-8 gap-8 items-center justify-center bg-linear-to-b from-zinc-50 to-white rounded-3xl shadow-lg">
         <h1 className="text-3xl font-extrabold">tlc</h1>
 
-        <div className="flex flex-row items- gap-16">
+        <div className="flex flex-row gap-16">
           <SettingsForm settings={settings} setSettings={setSettings} />
           <CircuitContainer settings={settings} setSettings={setSettings} />
         </div>
