@@ -2,6 +2,7 @@ import { type Circuit } from "./types";
 import circuitoResistivoImg from "./assets/circuito_resistivo.png";
 import circuitoCapacitivoImg from "./assets/circuito_capacitivo.png";
 import circuitoInduttivoImg from "./assets/circuito_induttivo.png";
+import deg2rad from "./utils";
 
 export const resistence = "R";
 export const capacity = "C";
@@ -12,9 +13,9 @@ export const circuits: Circuit[] = [
     id: resistence,
     name: "Circuito Puro Resistivo",
     image: circuitoResistivoImg,
-    calculateCurrent: (settings) => {
-      const x = (settings.peakVoltage / settings.resistence) * Math.cos(settings.phase * Math.PI / 180);
-      const y = (settings.peakVoltage / settings.resistence) * Math.sin(settings.phase * Math.PI / 180);
+    calculateCurrent: (s) => {
+      const x = (s.peakVoltage / s.resistence) * Math.cos(deg2rad(s.phase));
+      const y = (s.peakVoltage / s.resistence) * Math.sin(deg2rad(s.phase));
       return [x, y];
     },
   },
@@ -22,9 +23,10 @@ export const circuits: Circuit[] = [
     id: capacity,
     name: "Circuito Puro Capacitivo",
     image: circuitoCapacitivoImg,
-    calculateCurrent: (settings) => {
-      const x = (settings.peakVoltage * settings.pulsation * settings.capacity) * Math.cos((settings.phase * Math.PI / 180) + 90);
-      const y = (settings.peakVoltage * settings.pulsation * settings.capacity) * Math.sin((settings.phase * Math.PI / 180) + 90);
+    calculateCurrent: (s) => {
+      const x = s.peakVoltage * s.pulsation * s.capacity * Math.cos(deg2rad(s.phase + 90));
+      const y = s.peakVoltage * s.pulsation * s.capacity * Math.sin(deg2rad(s.phase + 90));
+
       return [x, y];
     },
   },
@@ -32,9 +34,10 @@ export const circuits: Circuit[] = [
     id: inductance,
     name: "Circuito Puro Induttivo",
     image: circuitoInduttivoImg,
-    calculateCurrent: (settings) => {
-      const x = (settings.peakVoltage / (settings.inductance * settings.pulsation)) * Math.cos((settings.phase * Math.PI / 180) - 90);
-      const y = (settings.peakVoltage / (settings.inductance * settings.pulsation)) * Math.sin((settings.phase * Math.PI / 180) - 90);
+    calculateCurrent: (s) => {
+      const x = (s.peakVoltage / (s.inductance * s.pulsation)) * Math.cos(deg2rad(s.phase - 90));
+      const y = (s.peakVoltage / (s.inductance * s.pulsation)) * Math.sin(deg2rad(s.phase - 90));
+
       return [x, y];
     },
   },

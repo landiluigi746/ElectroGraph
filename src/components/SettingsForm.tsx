@@ -1,7 +1,4 @@
-import {
-  InputNumber,
-  type InputNumberChangeEvent,
-} from "primereact/inputnumber";
+import { InputNumber, type InputNumberChangeEvent } from "primereact/inputnumber";
 import { type Settings } from "../types";
 import { capacity, inductance, resistence } from "../config";
 
@@ -54,6 +51,7 @@ function SettingsForm({ settings, setSettings }: Props) {
         <InputNumber
           id="phase"
           name="phase"
+          suffix=" °"
           value={settings.phase}
           onChange={onChange}
         />

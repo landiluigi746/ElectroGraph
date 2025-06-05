@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import functionPlot from "function-plot";
 import type { Settings } from "../types";
 import { circuits } from "../config";
+import deg2rad from "../utils";
 
 type Props = {
   settings: Settings;
@@ -17,27 +18,30 @@ function CircuitGraph({ settings, setSettings }: Props) {
     functionPlot({
       target: graphElement.current,
       xAxis: {
-        label: "Prova X",
+        label: "Re",
       },
       yAxis: {
-        label: "Prova Y",
+        label: "Img",
       },
       grid: true,
       data: [
         {
-          vector: [settings.peakVoltage*Math.cos(settings.phase* Math.PI/180), settings.peakVoltage*Math.sin(settings.phase* Math.PI/180)],
+          vector: [
+            settings.peakVoltage * Math.cos(deg2rad(settings.phase)),
+            settings.peakVoltage * Math.sin(deg2rad(settings.phase)),
+          ],
           graphType: "polyline",
-          fnType: `vector`,
+          fnType: "vector",
         },
 
         {
           vector: circuits[settings.selectedCircuit].calculateCurrent(settings),
           graphType: "polyline",
-          fnType: `vector`,
+          fnType: "vector",
         },
       ],
-      width: 384,
-      height: 256,
+      width: 420,
+      height: 280,
     });
   });
 
