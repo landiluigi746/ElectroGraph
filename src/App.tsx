@@ -5,12 +5,12 @@ import CircuitContainer from "./components/CircuitContainer";
 
 function App() {
   const [settings, setSettings] = useState<Settings>({
-    peakVoltage: 0,
-    pulsation: 0,
-    phase: 0,
-    resistence: 0,
-    capacity: 0,
-    inductance: 0,
+    peakVoltage: 5,
+    pulsation: 10,
+    phase: 30,
+    resistence: 10,
+    capacity: 0.005,
+    inductance: 5,
     valueEnabled: "R",
     selectedCircuit: 0,
   });

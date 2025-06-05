@@ -10,7 +10,7 @@ type Props = {
 
 function CircuitContainer({ settings, setSettings }: Props) {
   return (
-    <div className="flex flex-col items-center gap-4 w-104 h-auto">
+    <div className="flex flex-col items-center gap-4 w-112 h-auto">
       <CircuitSelector settings={settings} setSettings={setSettings} />
       <CircuitGraph settings={settings} setSettings={setSettings} />
       <CircuitImage selectedCircuit={settings.selectedCircuit} />

@@ -23,9 +23,9 @@ function SettingsForm({ settings, setSettings }: Props) {
   };
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-4 w-72 items-center">
+    <form onSubmit={onSubmit} className="flex flex-col gap-4 w-full items-center">
       <div className="flex flex-col gap-2">
-        <label htmlFor="peakVoltage">Valore di picco</label>
+        <label htmlFor="peakVoltage">Valore di picco (Vm)</label>
         <InputNumber
           id="peakVoltage"
           name="peakVoltage"
@@ -36,7 +36,7 @@ function SettingsForm({ settings, setSettings }: Props) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="pulsation">Pulsazione</label>
+        <label htmlFor="pulsation">Pulsazione (ω)</label>
         <InputNumber
           id="pulsation"
           name="pulsation"
@@ -47,18 +47,12 @@ function SettingsForm({ settings, setSettings }: Props) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="phase">Fase</label>
-        <InputNumber
-          id="phase"
-          name="phase"
-          suffix=" °"
-          value={settings.phase}
-          onChange={onChange}
-        />
+        <label htmlFor="phase">Fase (β)</label>
+        <InputNumber id="phase" name="phase" suffix=" °" value={settings.phase} onChange={onChange} />
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="resistence">Resistenza</label>
+        <label htmlFor="resistence">Resistenza (R)</label>
         <InputNumber
           id="resistence"
           name="resistence"
@@ -70,7 +64,7 @@ function SettingsForm({ settings, setSettings }: Props) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="capacity">Capacità</label>
+        <label htmlFor="capacity">Capacità (C)</label>
         <InputNumber
           id="capacity"
           name="capacity"
@@ -82,7 +76,7 @@ function SettingsForm({ settings, setSettings }: Props) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="inductance">Induttanza</label>
+        <label htmlFor="inductance">Induttanza (L)</label>
         <InputNumber
           id="inductance"
           name="inductance"
