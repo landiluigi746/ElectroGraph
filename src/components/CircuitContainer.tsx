@@ -12,7 +12,7 @@ function CircuitContainer({ settings, setSettings }: Props) {
   return (
     <div className="flex flex-col items-center gap-4 w-96 h-auto">
       <CircuitSelector settings={settings} setSettings={setSettings} />
-      <CircuitGraph />
+      <CircuitGraph settings={settings} setSettings={setSettings} />
       <CircuitImage selectedCircuit={settings.selectedCircuit} />
     </div>
   );

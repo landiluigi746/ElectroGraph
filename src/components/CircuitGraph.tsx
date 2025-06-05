@@ -1,7 +1,13 @@
 import { useEffect, useRef } from "react";
 import functionPlot from "function-plot";
+import type { Settings } from "../types";
 
-function CircuitGraph() {
+type Props = {
+  settings: Settings;
+  setSettings: (value: Settings) => void;
+};
+
+function CircuitGraph({ settings, setSettings }: Props) {
   const graphElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,7 +24,7 @@ function CircuitGraph() {
       grid: true,
       data: [
         {
-          fn: "sin(x)",
+          fn: `sin(x)`,
         },
       ],
       width: 384,
