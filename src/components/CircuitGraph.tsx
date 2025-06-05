@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import functionPlot from "function-plot";
 import type { Settings } from "../types";
+import { circuits } from "../config";
 
 type Props = {
   settings: Settings;
@@ -24,7 +25,15 @@ function CircuitGraph({ settings, setSettings }: Props) {
       grid: true,
       data: [
         {
-          fn: `sin(x)`,
+          vector: [settings.peakVoltage*Math.cos(settings.phase* Math.PI/180), settings.peakVoltage*Math.sin(settings.phase* Math.PI/180)],
+          graphType: "polyline",
+          fnType: `vector`,
+        },
+
+        {
+          vector: circuits[settings.selectedCircuit].calculateCurrent(settings),
+          graphType: "polyline",
+          fnType: `vector`,
         },
       ],
       width: 384,
