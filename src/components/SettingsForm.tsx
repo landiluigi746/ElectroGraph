@@ -32,6 +32,7 @@ function SettingsForm({ settings, setSettings }: Props) {
         <InputNumber
           id="peakVoltage"
           name="peakVoltage"
+          suffix=" V"
           value={settings.peakVoltage}
           onChange={onChange}
         />
@@ -42,6 +43,7 @@ function SettingsForm({ settings, setSettings }: Props) {
         <InputNumber
           id="pulsation"
           name="pulsation"
+          suffix=" rad/s"
           value={settings.pulsation}
           onChange={onChange}
         />
