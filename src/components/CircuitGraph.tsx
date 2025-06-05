@@ -9,7 +9,7 @@ type Props = {
   setSettings: (value: Settings) => void;
 };
 
-function CircuitGraph({ settings, setSettings }: Props) {
+function CircuitGraph({ settings }: Props) {
   const graphElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
