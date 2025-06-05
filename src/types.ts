@@ -2,6 +2,7 @@ export type Circuit = {
   id: string;
   name: string;
   image: string;
+  calculateCurrent: (settings: Settings) => [number, number];
 };
 
 export type Settings = {
