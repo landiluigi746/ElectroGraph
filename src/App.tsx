@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"; // NUNZIO TI AMIAMO <3
 import type { Settings } from "./types";
 import SettingsForm from "./components/SettingsForm";
 import CircuitContainer from "./components/CircuitContainer";
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center ">
       <div className="flex flex-col p-8 gap-8 items-center justify-center bg-linear-to-b from-zinc-50 to-white rounded-3xl shadow-lg">
-        <h1 className="text-3xl font-extrabold">tlc</h1>
+        <h1 className="text-3xl font-extrabold">ElectroGraph</h1>
 
         <div className="flex flex-row gap-16">
           <SettingsForm settings={settings} setSettings={setSettings} />
